@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-center mb-4">Prediction Results for <strong>{{ stock }}</strong></h2>
+{% if error %}
+    <div class="alert alert-danger text-center">{{ error }}</div>
+{% else %}
+    <div class="mb-4">
+        <h4>Original Closing Prices Over Time</h4>
+        <div class="text-center">
+            <img src="{{ original_plot }}" class="img-fluid rounded shadow-sm" alt="Original Plot">
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h4>Original vs Predicted Test Data</h4>
+        <div class="text-center">
+            <img src="{{ predicted_plot }}" class="img-fluid rounded shadow-sm" alt="Predicted Plot">
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h4>Future Close Price Predictions</h4>
+        <div class="text-center">
+            <img src="{{ future_plot }}" class="img-fluid rounded shadow-sm" alt="Future Predictions Plot">
+        </div>
+    </div>
+
+    <h5 class="mt-4">Future Predictions Table</h5>
+    <table class="table table-striped table-hover mt-2">
+        <thead class="table-dark">
+            <tr>
+                <th>Day</th>
+                <th>Predicted Close Price (USD)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for day, price in enumerate(future_predictions, start=1) %}
+            <tr>
+                <td>{{ day }}</td>
+                <td>${{ price | round(2) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+<a href="/" class="btn btn-secondary mt-4">Back to Home</a>
+{% endblock %}
