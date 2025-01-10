@@ -80,16 +80,3 @@ Enter the cryptocurrency ticker symbol (e.g., BTC-USD).
 Specify the number of future days to predict.
 Click "Predict."
 View the results, including plots and predicted prices.
-
-Project Structure
-
-crypto-price-predictor/
-├── templates/               # HTML templates
-│   ├── base.html            # Base layout
-│   ├── index.html           # Home page
-│   ├── result.html          # Results page
-├── static/                  # Static assets (CSS, JS, images)
-├── app.py                   # Flask application
-├── model.keras              # Pre-trained Keras model
-├── requirements.txt         # Python dependencies
-└── README.md                # Documentation
