@@ -1,4 +1,4 @@
-# Cryptocurrency Price Predictor
+# Cryptocurrency Predictor
 
 An AI-powered Flask web application that predicts cryptocurrency prices using historical data and deep learning models. Users can input a cryptocurrency ticker symbol and specify the number of future days for prediction.
 > **Disclaimer:**  
