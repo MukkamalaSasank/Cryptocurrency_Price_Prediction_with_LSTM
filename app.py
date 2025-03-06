@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 from datetime import datetime
+import os  # Added to fetch environment variables
 
 # Set Matplotlib to non-interactive backend
 matplotlib.use('Agg')
@@ -129,4 +130,5 @@ def create_future_predictions_plot(data, scaler, days):
     return plot_to_html(fig), future_predictions
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  # Get port from Render, default to 10000
+    app.run(host="0.0.0.0", port=port, debug=True)
